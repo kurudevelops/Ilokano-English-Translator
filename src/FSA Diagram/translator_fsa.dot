@@ -1,0 +1,24 @@
+digraph TranslationFSA {
+    rankdir=LR;
+    size="8,5";
+    node [shape=circle];
+
+    /* States */
+    q0 [label="Start\n(q0)"];
+    q1 [label="Parse\n(q1)"];
+    q2 [label="Translate\n(q2)"];
+    q3 [label="Generate\n(q3)"];
+    q4 [label="Output\n(q4)", shape=doublecircle];
+
+    /* Transitions */
+    q0 -> q1 [label="Input Text"];
+    q1 -> q2 [label="Tokenize"];
+    q2 -> q3 [label="POS Tag"];
+    q3 -> q4 [label="Apply Grammar"];
+    q1 -> q4 [label="Exact Match Found", style=dashed, color=blue];
+    q4 -> q0 [label="Reset", color=red];
+
+    /* Styling */
+    q0 [style=filled, fillcolor=lightblue];
+    q4 [style=filled, fillcolor=palegreen];
+}

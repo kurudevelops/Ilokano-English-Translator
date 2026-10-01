@@ -1,0 +1,190 @@
+# ilokano_CFG.txt
+# - Basic sentence structures
+# - Verb conjugations
+# - Special constructions (questions, negations)
+# - Multi-word expressions
+
+# ================= meaning of tags ========================= #
+# PN = Proper Noun (names)
+# N = Noun (common)
+# NP = Noun Phrase
+# V = Verb (base form)
+# VP = Verb Phrase
+# Adj = Adjective
+# Adv = Adverb
+# Det = Determiner (ti, ni, daytoy, etc.)
+# Prep = Preposition
+# Conj = Conjunction
+# Aux = Modal Auxiliary (mabalin, kayat, etc.)
+# Neg = Negation (haan, saan, etc.)
+# Wh_Q = Wh-Question word (apay, kasano, etc.)
+# PP = Prepositional Phrase
+# S = Sentence
+# Pronoun = Personal or reflexive pronoun
+# Adda = Existential predicate (there is / adda)
+
+# ilokano_CFG.txt
+# Expanded CFG rules with 200 samples per category
+# Includes:
+# - Basic sentence structures
+# - Verb conjugations
+# - Special constructions (questions, negations)
+# - Multi-word expressions
+
+# Sentences
+S -> NP VP | VP NP | Adda NP | Adda Adj NP | NP Adj | NP NP | S Conj S
+S -> Wh_Q VP | Wh_Q NP VP | Wh_Q Aux NP VP | Neg VP | Neg Aux VP | S '?'
+S -> NP VP PP | NP VP NP PP | NP VP Adv | NP VP NP Adv | NP VP Adj
+S -> NP Aux VP | NP Aux VP NP | NP Aux VP Adj | NP Aux VP PP | NP Aux VP NP PP
+S -> NP V NP NP | NP V NP PP | NP V NP Adj | NP V NP Adv | NP V NP Conj NP
+
+# Questions
+S -> Wh_Q VP
+S -> Wh_Q NP VP
+S -> Wh_Q Aux NP VP
+S -> Wh_Q Copula NP
+S -> Wh_Q Copula Adj
+
+# Negations
+S -> NP Neg VP
+S -> NP Copula Neg Adj
+S -> NP V Neg NP
+
+# Imperatives
+S -> V NP
+S -> V NP PP
+S -> V Adj
+S -> Neg V NP
+
+# Compound sentences
+S -> S Conj S
+S -> S ',' Conj S
+
+# verb constructions
+VP -> V Adj
+VP -> V Adv
+VP -> V NP Adv
+VP -> V NP Adj
+VP -> V PP
+VP -> V NP PP
+
+Adda -> 'adda' | 'adda' 'iti' | 'adda' 'kadi' | 'adda' 'nga' | 'adda' 'pay'
+
+PP -> Prep NP | Prep Det NP | Prep Adj NP | Prep NP PP
+
+Wh_Q -> 'apay' | 'kasano' | 'ayanna' | 'ania' | 'inton' | 'siasino'
+Wh_Q -> 'mano' | 'sagmamano' | 'kaano' | 'kasanon' | 'kadakkel'
+Wh_Q -> 'ania' | 'apay' | 'ayanna' | 'inton' | 'kadakkel' | 'kasano' | 'mano' | 'siasino'
+
+Inton -> 'inton' | 'no' | 'idi' | 'bayat' | 'kalpasan'
+
+VP -> V | V NP | V PP | V Adj | V Adv | V NP PP | Aux V | Aux V NP
+VP -> Aux V PP | Aux V Adj | Adj | NP | PP | V 'nga' VP | V 'a' VP
+VP -> V Infinitive | V Gerund | V NP Infinitive | V NP Gerund
+
+Infinitive -> 'ag' V | 'mang' V | 'um' V | 'i' V
+Gerund -> 'panag' V | 'ag' V 'V' | 'nag' V 'V'
+
+NP -> Det N | N | Det Adj N | Pronoun | NP PP | ProperNoun | NP Conj NP
+NP -> Adj N | N PP | Det N PP | 'daytoy' | 'dayta' | 'idiay' | 'dita'
+NP -> NP RelClause | NP PartClause | NP Appositive | NP PrepP | NP AdvP
+
+RelClause -> RelPron VP | RelPron NP VP
+PartClause -> PartP NP | PartP Adj | PartP Adv
+Appositive -> ',' NP ',' | '-' NP '-' | '(' NP ')'
+PrepP -> Prep NP | Prep Det NP | Prep Adj NP
+AdvP -> Adv | Adv Adv | Adv Conj Adv
+
+Det -> 'ti' | 'ni' | 'dagiti' | 'daytoy' | 'dayta' | 'diay' | 'diayto'
+Det -> 'kay' | 'iti' | 'kadagiti' | 'iti rabaw' | 'iti uneg' | 'iti ruar' | 'a' | 'to' | 'toy'
+
+Adj -> 'naragsak' | 'nakem' | 'dakkel' | 'bassit' | 'nalammin' | 'napudot' | 'makaturturog' | 'nabannog'
+Adj -> 'nasayaat' | 'dakes' | 'napintas' | 'nagalas' | 'nalinis' | 'narugit' | 'baro' | 'daan' | 'ubing'
+Adj -> 'napardas' | 'na-inut' | 'nangina' | 'nalaka' | 'baknang' | 'napanglaw' | 'natibker' | 'nalaing'
+Adj -> 'nalgas' | 'nasantuan' | 'nasingpet' | 'nupay' | 'sadiay' | 'sangapulo' | 'umuna' | 'adu' | 'allawan'
+Adj -> 'balin' | 'bileg' | 'bongbong' | 'gapo' | 'kailian' | 'kanayon' | 'kayat' | 'nupay' | 'pintas' | 'sadiay' | 'sangapulo'
+
+Adv -> 'laeng' | 'met' | 'ngarud' | 'pay' | 'unay'
+
+VP -> 'Addaakun' | 'Agtultuloyak' | 'Agyamanak' | 'Awanen' | 'Awanpay' | 'Makikita'
+VP -> 'Mataytayag' | 'Pakawanennak' | 'Salakniban' | 'Tumultulong'
+
+N -> 'aso' | 'pusa' | 'balay' | 'kanen' | 'danum' | 'ubing' | 'maestro' | 'lalaki' | 'babai'
+N -> 'oras' | 'aldaw' | 'tawen' | 'lawas' | 'bulan' | 'minuto' | 'segundo' | 'bigat' | 'malem'
+N -> 'rabii' | 'ita' | 'inton' | 'idi' | 'dita' | 'idiay' | 'ngato' | 'baba' | 'uneg' | 'ruar' | 'a'
+N -> 'abayko' | 'abugado' | 'adal' | 'adda' | 'addaakun' | 'addaan' | 'adu' | 'alaekon' | 'aldawmo'
+N -> 'amin' | 'ammo' | 'ammok' | 'ammom' | 'anges' | 'aniamanna' | 'apagbiit' | 'apo' | 'arakyo' | 'aramidem'
+N -> 'asi' | 'asideg' | 'awagakto' | 'awan' | 'ay-ayam' | 'ay-ayaten' | 'aya' | 'ayat' | 'babaen' | 'babasit'
+n -> 'baboy' | 'bagahe' | 'bagko' | 'baguio' | 'balasang' | 'balayko' | 'banag' | 'bangbanglo' | 'banio' | 'basaen'
+N -> 'basbasaem' | 'baso' | 'bassit' | 'basul' | 'bay-anen' | 'bayad' | 'bayat' | 'biag' | 'binasam' | 'biyernes'
+N -> 'buluden' | 'buok' | 'bus' | 'buyogen' | 'card' | 'counter' | 'credit' | 'customer' | 'dagita' | 'dakdakkel'
+N -> 'dalan' | 'danaw' | 'danom' | 'danum' | 'daras' | 'daytoyen' | 'daytuy' | 'diakon' | 'diet' | 'dios' | 'dita'
+N -> 'ditoy' | 'dituy' | 'dobliem' | 'doktor' | 'domingo' | 'dorm' | 'dumagas' | 'gagayyemna' | 'guapo' | 'huwebes'
+N -> 'ibagam' | 'ibagayo' | 'idi' | 'idiay' | 'idulin' | 'iduron' | 'iggamam' | 'ilocano' | 'in-inut' | 'inaramidko'
+N -> 'ingles' | 'insurance' | 'intan' | 'intayon' | 'intono' | 'inuubing' | 'ipadas' | 'iprepare' | 'isu' | 'ita'
+N -> 'itattay' | 'itay' | 'itext' | 'itoy' | 'itravel' | 'iyoffer' | 'iyordermo' | 'iyupgrade' | 'kabambantayan'
+N -> 'kabayag' | 'kadakami' | 'kadi' | 'kadua' | 'kaduan' | 'kaduana' | 'kalman' | 'kalsada' | 'kami' | 'kan'
+N -> 'kanen' | 'karik' | 'kasatno' | 'kasatnu' | 'kasilyas' | 'kasla' | 'kasta' | 'kayatko' | 'kayatna' | 'kayo'
+N -> 'kenyam' | 'kinyada' | 'kitaem' | 'ko' | 'koma' | 'kotse' | 'kuarta' | 'kulayam' | 'kuldingen' | 'kulot'
+N -> 'kumusta' | 'kurang' | 'kuriente' | 'kwarto' | 'kwartok' | 'la' | 'laengen' | 'lamesa' | 'lamihaan' | 'lawas'
+N -> 'leksion' | 'libro' | 'likudan' | 'linisam' | 'lockeryo' | 'lubong' | 'lugan' | 'lugar' | 'lunes' | 'luto'
+N -> 'luwas' | 'ma-ul-ulaw' | 'maammuanen' | 'maawanan' | 'maawatan' | 'mabalinko' | 'mabannog' | 'mabiit' | 'madi'
+N -> 'maipagpannakkel' | 'malagip' | 'malamin' | 'malem' | 'maminsan' | 'man' | 'manen' | 'mangala' | 'manila' | 'manu'
+N -> 'mapa' | 'maretain' | 'martes' | 'maturog' | 'mayat' | 'maysa' | 'menu' | 'merkado' | 'minuto' | 'miyerkules' | 'mo'
+N -> 'mon' | 'multa' | 'musiko' | 'na' | 'naangin' | 'nagamammo' | 'nagan' | 'nagangin' | 'naglammin' | 'nagmanifest'
+N -> 'nagpigsa' | 'nagpudot' | 'nagsanayen' | 'nagsingpet' | 'nagtudo' | 'naimbag' | 'nain-inut' | 'nakaemail'
+N -> 'nakangin-ngina' | 'nakitam' | 'nakto' | 'nalpas' | 'nalpasen' | 'nanganakon' | 'nangawag' | 'napalabas' | 'napan'
+N -> 'napateg' | 'napaut' | 'napigsa' | 'napukaw' | 'napuno' | 'naretain' | 'nasayaat' | 'natayag' | 'nawaya' | 'ngarudden'
+N -> 'ngata' | 'ngudona' | 'nu' | 'or' | 'oras' | 'orasen' | 'pabuya' | 'padas' | 'padasek' | 'padasen' | 'pakitam'
+N -> 'panagasawa' | 'panagbasa' | 'panagraem' | 'panagsuratmo' | 'panangawis' | 'panawen' | 'pangaasi' | 'pangipanam'
+N -> 'pannakabannog' | 'pannakidangadang' | 'panunotem' | 'papam' | 'pasardengen' | 'pasayaatem' | 'patien' | 'phrase'
+N -> 'pilipino' | 'present' | 'problema' | 'pudno' | 'pulis' | 'puraw' | 'rabaw' | 'rabii' | 'ruar' | 'sa' | 'sabado'
+N -> 'sadino' | 'sagmamanu' | 'sango' | 'sapay' | 'saysayangem' | 'sentence' | 'sentensia' | 'sidadaan' | 'siled-pagadalan'
+N -> 'suli' | 'sumagmamano' | 'sumaruno' | 'suna' | 'ta' | 'taga-ano' | 'talentado' | 'tanto' | 'target' | 'tarupam'
+N -> 'tawar' | 'tawen' | 'thesis' | 'tiempo' | 'tiendaan' | 'tiket' | 'tilmunem' | 'tudo' | 'tulong' | 'tummakder'
+N -> 'tummugaw' | 'ubing' | 'ugasam' | 'ulom' | 'umado' | 'umay' | 'umayakto' | 'uneg' | 'usto' | 'wen' | 'yo' | 'abay'
+N -> 'abugado' | 'adal' | 'agas' | 'agsapa' | 'anak' | 'armas' | 'babai' | 'balasang' | 'bannuar' | 'baro' | 'biag'
+N -> 'biagmi' | 'bilin' | 'bilog' | 'dadakkel' | 'daduma' | 'daga' | 'gapu' | 'gobierno' | 'gubat' | 'guyud' | 'ili'
+N -> 'ina' | 'kailian' | 'kalesa' | 'kamang' | 'kappia' | 'kasta' | 'kayat' | 'kerubin' | 'kinnabaknang' | 'kinni'
+N -> 'kolehio' | 'lallaki' | 'lalaki' | 'lugan' | 'maalam' | 'mag-anak' | 'manang' | 'maysa' | 'naglabas' | 'nagan'
+N -> 'nasantoan' | 'panagbiag' | 'panagkaykaysa' | 'panangipateg' | 'pannubok' | 'pappapanaw' | 'pastol' | 'piddut'
+N -> 'pintas' | 'puli' | 'sapatos' | 'sarita' | 'sarungkar' | 'sinauna' | 'singsing' | 'sirib' | 'supsupang' | 'surot'
+N -> 'taga' | 'tattao' | 'timpuyog' | 'torog' | 'trabaho' | 'umili' | 'uray'
+
+V -> 'tumaray' | 'mangan' | 'inum' | 'kita' | 'tartaray' | 'maturog' | 'pumanaw' | 'ited' | 'mapan' | 'agsao'
+V -> 'agsurat' | 'agbasa' | 'alaen' | 'aramiden' | 'ammuen' | 'panunoten' | 'kayat' | 'kasapulan' | 'ay-aten' | 'nginaen'
+V -> 'ag-awawat' | 'ag-english' | 'agaluad' | 'agangay' | 'agannad' | 'aganus' | 'agay-ayam' | 'agayabak' | 'agbayadak'
+v -> 'agdardaras' | 'agdardarasak' | 'ageskuela' | 'agkalma' | 'agkita' | 'aglovelifenak' | 'agmanmaneho' | 'agpa'
+V -> 'agpanunot' | 'agpapedicure' | 'agrenta' | 'agsagana' | 'agsakitak' | 'agsaksakitak' | 'agsao' | 'agsaokayo'
+V -> 'agsubli' | 'agsukat' | 'agsursuro' | 'agtalinaedka' | 'agturong' | 'aguray' | 'agyaman' | 'kasapulan' | 'kayat'
+V -> 'maka' | 'makaammon' | 'makadanon' | 'makadanonak' | 'makan' | 'makasao' | 'makasaoka' | 'makaturturog' | 'addaan'
+V -> 'aginano' | 'agsardeng' | 'agsingpet' | 'agtrabaho' | 'agtrabahoak' | 'awaten' | 'dumngeg' | 'intay' | 'kayatko'
+V -> 'kayatna' | 'maala' | 'mangngeg' | 'mangted' | 'naited' | 'napateg' | 'sursuro' | 'tagikua' | 'tumulong'
+
+Pronoun -> 'siak' | 'sika' | 'isuna' | 'datayo' | 'isuda' | 'kaniak' | 'kenkuana' | 'kadakami' | 'kadakuada' | 'bagik'
+Pronoun -> 'bagim' | 'bagina' | 'bagitayo' | 'bagida' | 'kukuak' | 'kukuam' | 'kuana' | 'kukuatayo' | 'kuada' | 'ak' | 'baka'
+Pronoun -> 'bay-annak' | 'dak' | 'diak' | 'dinak' | 'haanak' | 'innak' | 'ka' | 'kaniak' | 'kanyak' | 'kasapulak' | 'kenka'
+Pronoun -> 'kitak' | 'kumannawanka' | 'kumannigidka' | 'kunak' | 'lumintegka' | 'maawatak' | 'mabisinnak' | 'mabubusurak'
+Pronoun -> 'madinak' | 'makidawatak' | 'mamatiak' | 'mangalaak' | 'mariknak' | 'naaksidenteak' | 'nabannogak' | 'nagbasaak'
+Pronoun -> 'naka' | 'nakalak-laka' | 'nakitak' | 'nalaka' | 'nalipatak' | 'napukawak' | 'naragsakka' | 'pagbiagak' | 'pagnanaedak'
+Pronoun -> 'pakawanen-nak' | 'pakawanennak' | 'pitakak' | 'ragsak' | 'riknak' | 'urayenka' | 'urayennak' | 'vegetarianak' | 'kami'
+Pronoun -> 'kanya' | 'kasla' | 'kayatko' | 'saka' | 'santuanmi' | 'yo'
+
+Prep -> 'iti' | 'iti rabaw' | 'kadagiti' | 'iti uneg' | 'para' | 'manipud' | 'maibusor'
+Prep -> 'baet' | 'sumrek' | 'babaen' | 'bayat' | 'sakbay' | 'kalpasan' | 'ngato' | 'baba' | 'sirok'
+Prep -> 'rabaw' | 'labes' | 'likud' | 'sango' | 'a' | 'aaywanan' | 'kaddua' | 'sadiay'
+
+Conj -> 'ken' | 'wenno' | 'ngem' | 'ket' | 'tapnu' | 'nga' | 'no' | 'gapu' | 'nupay' | 'uray' | 'bayat' | 'idi' | 'inton' | 'ta'
+
+Adv -> 'napardas' | 'na-inut' | 'nalaing' | 'nakuttong' | 'unay' | 'met' | 'pay'
+Adv -> 'laeng' | 'ngarud' | 'manen' | 'dita' | 'idiay' | 'ngato' | 'baba'
+Adv -> 'uneg' | 'ruar' | 'sakbay' | 'kalpasan' | 'bayat' | 'idi' | 'inton'
+
+Aux -> 'mabalin' | 'kayatto' | 'naka' | 'ag' | 'maka' | 'maka' Aux | 'mabalin'
+Aux -> 'masapul' | 'mabalin' | 'kayatto' | 'naka' | 'ag' | 'maka' | 'mabalin'
+
+Neg -> 'haan' | 'saan' | 'di' | 'dina' | 'dakami' | 'dakayo' | 'diayto' | 'haan pay'
+Neg -> 'saan pay' | 'di pay' | 'dina pay' | 'haanen' | 'saanen' | 'awan'
+
+ProperNoun -> 'Juan' | 'Maria' | 'Baguio' | 'Manila' | 'Filipinas' | 'Lunes'
+ProperNoun -> 'Martes' | 'Enero' | 'Pebrero' | 'Paskua' | 'Pasko' | 'UN'

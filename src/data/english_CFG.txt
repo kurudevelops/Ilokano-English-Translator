@@ -1,0 +1,233 @@
+# english_CFG.txt
+# - Basic sentence structures
+# - Verb conjugations
+# - Special constructions (questions, negations)
+# - Multi-word expressions
+
+# ================      meaning of tags        ========================= #
+# Pronoun = Pronoun (general category)
+# PP = Personal Pronoun (I, you, he, she, we, they)
+# PP$ = Possessive Pronoun (my, your, his, her, our, their)
+# PPS = Subject Pronoun (I, you, he, she, we, they)
+# PPO = Object Pronoun (me, you, him, her, us, them)
+# PRP = Reflexive Pronoun (myself, yourself, himself, etc.)
+# WP = Wh-Pronoun (who, whom, what, which)
+# N = Noun (common)
+# NP = Noun Phrase
+# ProperNoun = Proper Noun (names)
+# V = Verb (base form)
+# VBD = Verb (past tense)
+# VBG = Verb (gerund/present participle)
+# VBN = Verb (past participle)
+# VP = Verb Phrase
+# Adj = Adjective
+# Adv = Adverb
+# Det = Determiner (the, a, this, those)
+# Prep = Preposition (in, on, at, with)
+# Conj = Conjunction (and, or, but)
+# Aux = Modal Auxiliary (can, could, will, would)
+# Neg = Negation (not, don't)
+
+# Sentences
+S -> NP VP | VP NP | ThereBe NP | ThereBe Adj NP | NP Copula Adj | NP Copula NP | S Conj S
+S -> Wh_Q VP | Wh_Q NP VP | Wh_Q Aux NP VP | Neg VP | Neg Aux VP | S '?'
+S -> NP VP PP | NP VP NP PP | NP VP Adv | NP VP NP Adv | NP VP Adj
+S -> NP Aux VP | NP Aux VP NP | NP Aux VP Adj | NP Aux VP PP | NP Aux VP NP PP
+S -> NP V NP NP | NP V NP PP | NP V NP Adj | NP V NP Adv | NP V NP Conj NP
+
+# Questions
+S -> Wh_Q Aux NP VP
+S -> Wh_Q V NP
+S -> Wh_Q Copula NP
+S -> Wh_Q Copula Adj
+
+# Negations
+S -> NP Aux Neg VP
+S -> NP Copula Neg Adj
+S -> NP V Neg NP
+
+# Imperatives
+S -> V NP
+S -> V NP PP
+S -> V Adj
+S -> Neg V NP
+
+# Compound sentences
+S -> S Conj S
+S -> S ',' Conj S
+
+# verb constructions
+VP -> V Adj
+VP -> V Adv
+VP -> V NP Adv
+VP -> V NP Adj
+VP -> V PP
+VP -> V NP PP
+
+ThereBe -> 'there' 'is' | 'there' 'are' | 'there' 'was' | 'there' 'were'
+
+PP -> Prep NP | Prep Det NP | Prep Adj NP | Prep NP PP
+
+Wh_Q -> 'why' | 'how' | 'where' | 'what' | 'when' | 'who' | 'which' | 'whose' | 'whom'
+Wh_Q -> 'how many' | 'how much' | 'how often' | 'how long' | 'how far'
+
+Copula -> 'am' | 'is' | 'are' | 'was' | 'were' | 'be' | 'being' | 'been'
+
+VP -> V | V NP | V PP | V Adj | V Adv | V NP PP | Aux V | Aux V NP
+VP -> Aux V PP | Aux V Adj | Copula Adj | Copula NP | Copula PP | V 'to' VP
+VP -> V NP 'to' VP | V Gerund | V Infinitive | V NP Gerund | V NP Infinitive
+
+Gerund -> V 'ing'
+Infinitive -> 'to' V
+
+NP -> Det N | Det Adj N | N | Pronoun | NP PP | ProperNoun | NP Conj
+NP -> Adj N | N PP | Det N PP | 'there' | 'it' | 'this' | 'that' | 'these' | 'those'
+NP -> NP RelClause | NP PartClause | NP Appositive | NP PrepP | NP AdvP
+
+RelClause -> RelPron VP | RelPron NP VP
+PartClause -> PartP NP | PartP Adj | PartP Adv
+Appositive -> ',' NP ',' | '-' NP '-' | '(' NP ')'
+PrepP -> Prep NP | Prep Det NP | Prep Adj NP
+AdvP -> Adv | Adv Adv | Adv Conj Adv
+
+PPS -> 'I' | "I'm" | "I'd" | "I'll" | 'it' | 'They' | 'She' | 'you'
+PPO -> 'him' | 'me' | 'them' | 'us'
+# PP$ -> "God's" | 'her' | 'his' | 'its' | 'my' | 'your'
+PRP -> 'yourself'
+
+CC -> 'so' | 'that' | 'while' | 'yet'
+WP -> 'how' | 'what' | 'where' | 'who' | 'why'
+
+VBD -> 'ate' | 'called' | 'forgot' | 'had' | 'left' | 'lost' | 'made' | 'manifested' | 'married' | 'rained' | 'saw' | 'thought' | 'was' | 'were'
+VBN -> 'been' | 'called' | 'done' | 'finished' | 'made' | 'manifested'
+VBG -> 'driving' | 'feeling' | 'learning' | 'missing' | 'playing' | 'practicing' | 'raining' | 'reading' | 'taking' | 'wasting' | 'writing'
+
+Det -> 'that' | 'these' | 'those' | 'your'
+Det -> 'his' | 'her' | 'its' | 'our' | 'their' | 'any' | 'every'
+Det -> 'each' | 'both' | 'half' | 'either' | 'neither'
+Det -> 'that' | 'these' | 'those' | 'your'
+Det -> 'his' | 'her' | 'its' | 'our' | 'their' | 'any' | 'every' | 'each'
+Det -> 'both' | 'half' | 'either' | 'neither' | 'other' | 'such'
+Det -> 'which' | 'whose' | 'enough' | 'most' | 'fewer'
+Det -> 'fewest' | 'less' | 'least' | 'several' | 'enough' | 'plenty' | 'lots'
+Det -> 'tons' | 'any' | 'other' | 'such' | 'which' | 'whose'
+Det -> 'whichever' | 'whatever' | 'whosoever' | 'whichsoever' | 'whatsoever'
+Det -> 'any' | 'every' | 'each' | 'both' | 'half' | 'either' | 'neither'
+Det -> 'other' | 'such' | 'which' | 'whose' | 'enough'
+Det -> 'most' | 'fewer' | 'fewest' | 'less' | 'least'
+Det -> 'several' | 'enough' | 'plenty' | 'lots' | 'tons'
+Det -> 'a' | 'all' | 'an' | 'another' | 'few' | 'little' | 'many' | 'more'
+Det -> 'much' | 'my' | 'next' | 'no' | 'some' | 'the' | 'this' | 'what'
+
+Adj -> 'TRUE' | 'able' | 'alive' | 'alone' | 'artificial' | 'asleep' | 'awake' | 'available'
+Adj -> 'bad' | 'beautiful' | 'bigger' | 'bitter' | 'bright' | 'busy' | 'cheap' | 'childish'
+Adj -> 'clean' | 'clever' | 'cold' | 'complex' | 'correct' | 'cool' | 'curly' | 'dark' | 'dead'
+Adj -> 'deep' | 'different' | 'difficult' | 'dirty' | 'dizzy' | 'dry' | 'early' | 'easy' | 'empty'
+Adj -> 'expensive' | 'false' | 'famous' | 'fast' | 'fine' | 'first' | 'fresh' | 'free' | 'full'
+Adj -> 'funny' | 'good' | 'great' | 'handsome' | 'happy' | 'hard' | 'healthy' | 'heavy' | 'high'
+Adj -> 'hot' | 'hungry' | 'important' | 'incorrect' | 'inviting' | 'last' | 'late' | 'light'
+Adj -> 'little' | 'long' | 'lost' | 'loud' | 'low' | 'married' | 'modern' | 'natural' | 'narrow'
+Adj -> 'necessary' | 'new' | 'nice' | 'noisy' | 'normal' | 'old' | 'open' | 'patient' | 'poor'
+Adj -> 'pretty' | 'private' | 'proud' | 'public' | 'quiet' | 'ready' | 'rich' | 'right' | 'rough'
+Adj -> 'sad' | 'safe' | 'salty' | 'same' | 'short' | 'sick' | 'simple' | 'single' | 'sleepy' | 'slow'
+Adj -> 'small' | 'smooth' | 'soft' | 'sorry' | 'special' | 'stale' | 'straight' | 'strong' | 'stupid'
+Adj -> 'sweet' | 'talented' | 'tall' | 'thin' | 'thick' | 'tired' | 'traditional' | 'true' | 'ugly'
+Adj -> 'unknown' | 'vegetarian' | 'warm' | 'welcome' | 'well' | 'wet' | 'white' | 'wide' | 'willing'
+Adj -> 'windy' | 'wrong' | 'young'
+
+N -> 'accident' | 'afternoon' | 'answer' | 'art' | 'bag' | 'baggage' | 'bathroom' | 'beauty' | 'bed' | 'beef' | 'bill' | 'bird'
+N -> 'book' | 'books' | 'boy' | 'breath' | 'bus' | 'car' | 'cards' | 'care' | 'cat' | 'chair' | 'change' | 'child' | 'choice'
+N -> 'classroom' | 'cloud' | 'color' | 'comfort' | 'computer' | 'consumers' | 'corner' | 'country' | 'course' | 'credit'
+N -> 'day' | 'days' | 'death' | 'diet' | 'doctor' | 'dog' | 'dorm' | 'door' | 'down' | 'earth' | 'email' | 'end' | 'evening'
+N -> 'excuse' | 'eye' | 'face' | 'family' | 'fault' | 'feeling' | 'fight' | 'fish' | 'flower' | 'food' | 'friends' | 'friend'
+N -> 'front' | 'fruit' | 'game' | 'girl' | 'glass' | 'god' | 'grace' | 'hair' | 'hand' | 'head' | 'health' | 'here'
+N -> 'hospital' | 'hour' | 'house' | 'idea' | 'in' | 'include' | 'insurance' | 'joy' | 'kids' | 'lake' | 'language' | 'lawyer'
+N -> 'lesson' | 'life' | 'liqueur' | 'locker' | 'love' | 'man' | 'map' | 'market' | 'meat' | 'menu' | 'minute' | 'minutes'
+N -> 'mind' | 'moment' | 'money' | 'month' | 'morning' | 'mountain' | 'mountains' | 'music' | 'name' | 'news' | 'night'
+N -> 'now' | 'offer' | 'order' | 'paper' | 'patient' | 'payment' | 'pedicure' | 'pen' | 'people' | 'perfume' | 'person'
+N -> 'place' | 'police' | 'pork' | 'price' | 'problem' | 'promise' | 'question' | 'rain' | 'recipe' | 'residence' | 'respect'
+N -> 'right' | 'river' | 'rice' | 'road' | 'room' | 'school' | 'second' | 'sea' | 'sentences' | 'show' | 'sky' | 'star' | 'stay'
+N -> 'story' | 'store' | 'street' | 'student' | 'study' | 'sun' | 'swallow' | 'table' | 'teacher' | 'text' | 'thing' | 'thesis'
+N -> 'ticket' | 'time' | 'times' | 'toilet' | 'tomorrow' | 'travel' | 'tree' | 'trees' | 'up' | 'upgrade' | 'vegetable' | 'view'
+N -> 'wait' | 'walk' | 'wallet' | 'wash' | 'water' | 'way' | 'week' | 'wind' | 'window' | 'woman' | 'word' | 'work' | 'world'
+N -> 'writing' | 'year' | 'yesterday'
+
+V -> 'accept' | 'add' | 'agree' | 'allow' | 'appear' | 'ask' | 'be' | 'become' | 'believe' | 'bring' | 'build'
+V -> 'buy' | 'call' | 'change' | 'chase' | 'choose' | 'come' | 'consider' | 'continue' | 'cover' | 'create' | 'cut'
+V -> 'decide' | 'develop' | 'die' | 'do' | 'draw' | 'drink' | 'eat' | 'email' | 'end' | 'excuse' | 'face'
+V -> 'fall' | 'feel' | 'fight' | 'find' | 'follow' | 'forget' | 'get' | 'give' | 'go' | 'grow' | 'happen' | 'have'
+V -> 'hear' | 'help' | 'hit' | 'hold' | 'hurry' | 'include' | 'keep' | 'kill' | 'know' | 'lead' | 'learn' | 'leave'
+V -> 'let' | 'like' | 'live' | 'look' | 'lose' | 'love' | 'make' | 'mean' | 'meet' | 'mind' | 'move' | 'need'
+V -> 'offer' | 'open' | 'pass' | 'pay' | 'play' | 'place' | 'prefer' | 'prepare' | 'produce' | 'pull' | 'put'
+V -> 'raise' | 'read' | 'reach' | 'relax' | 'remember' | 'rent' | 'repeat' | 'report' | 'require' | 'respect'
+V -> 'retain' | 'return' | 'run' | 'say' | 'see' | 'sell' | 'seem' | 'serve' | 'set' | 'show' | 'sit' | 'sleep'
+V -> 'speak' | 'spend' | 'stand' | 'stay' | 'stop' | 'study' | 'suggest' | 'support' | 'swallow' | 'take' | 'teach'
+V -> 'tell' | 'thank' | 'think' | 'touch' | 'travel' | 'try' | 'turn' | 'understand' | 'upgrade' | 'use' | 'view'
+V -> 'wait' | 'walk' | 'want' | 'watch' | 'wear' | 'win' | 'wish' | 'work' | 'write'
+
+Pronoun -> 'I' | 'you' | 'he' | 'she' | 'we' | 'they' | 'me' | 'him' | 'her'
+Pronoun -> 'us' | 'them' | 'myself' | 'yourself' | 'himself' | 'herself' | 'itself'
+Pronoun -> 'I' | 'you' | 'he' | 'she' | 'it' | 'we' | 'they' | 'me' | 'him' | 'her' | 'us'
+Pronoun -> 'them' | 'myself' | 'yourself' | 'himself' | 'herself' | 'itself' | 'ourselves'
+Pronoun -> 'yourselves' | 'themselves' | 'this' | 'that' | 'these' | 'those' | 'who' | 'whom'
+Pronoun -> 'whose' | 'which' | 'what' | 'whatever' | 'whoever' | 'whomever' | 'whichever'
+Pronoun -> 'somebody' | 'someone' | 'something' | 'anybody' | 'anyone' | 'anything'
+Pronoun -> 'nobody' | 'no one' | 'nothing' | 'everybody' | 'everyone' | 'everything'
+Pronoun -> 'another' | 'other' | 'others' | 'either' | 'neither' | 'both' | 'all' | 'most'
+Pronoun -> 'some' | 'any' | 'none' | 'few' | 'many' | 'several' | 'such' | 'same' | 'own' | 'each'
+Pronoun -> 'every' | 'much' | 'more' | 'little' | 'enough' | 'several' | 'enough' | 'plenty' | 'lots'
+Pronoun -> 'tons' | 'some' | 'any' | 'no' | 'other' | 'such' | 'what' | 'which' | 'whose' | 'whichever'
+Pronoun -> 'whatever' | 'who' | 'whoever' | 'whom' | 'whomever' | 'where' | 'wherever' | 'when' | 'whenever'
+Pronoun -> 'why' | 'how' | 'however'
+
+Prep -> 'about' | 'aboard' | 'above' | 'according' | 'across' | 'after' | 'against' | 'ahead' | 'along'
+Prep -> 'amid' | 'among' | 'anti' | 'apart' | 'around' | 'as' | 'aside' | 'astride' | 'at' | 'atop'
+Prep -> 'bar' | 'barring' | 'before' | 'behind' | 'below' | 'beneath' | 'beside' | 'besides' | 'between'
+Prep -> 'beyond' | 'but' | 'by' | 'circa' | 'concerning' | 'considering' | 'despite' | 'down' | 'during'
+Prep -> 'excluding' | 'except' | 'excepting' | 'excluding' | 'following' | 'for' | 'from' | 'given' | 'in'
+Prep -> 'including' | 'inside' | 'into' | 'like' | 'minus' | 'near' | 'notwithstanding' | 'of' | 'off'
+Prep -> 'on' | 'onto' | 'opposite' | 'out' | 'outside' | 'over' | 'owing' | 'past' | 'pending' | 'per'
+Prep -> 'plus' | 'regarding' | 'respecting' | 'round' | 'save' | 'since' | 'than' | 'through' | 'throughout'
+Prep -> 'to' | 'toward' | 'towards' | 'touching' | 'under' | 'underneath' | 'unlike' | 'until' | 'up'
+Prep -> 'upon' | 'versus' | 'via' | 'vis-à-vis' | 'with' | 'within' | 'without' | 'worth'
+
+Conj -> 'and' | 'or' | 'but' | 'while' | 'so' | 'yet' | 'for' | 'nor' | 'because' | 'although' | 'though'
+Conj -> 'since' | 'unless' | 'until' | 'when' | 'where' | 'whether' | 'after' | 'before' | 'if' | 'than'
+Conj -> 'that' | 'rather' | 'even' | 'provided' | 'once' | 'now' | 'wherever' | 'lest' | 'whenever'
+Conj -> 'whereas' | 'whereby' | 'why' | 'both' | 'either' | 'neither' | 'not' | 'only' | 'such' | 'as'
+Conj -> 'like' | 'except' | 'plus' | 'minus' | 'times' | 'divided' | 'therefore' | 'thus' | 'hence'
+Conj -> 'accordingly' | 'consequently' | 'then' | 'besides' | 'furthermore' | 'however' | 'nevertheless'
+Conj -> 'otherwise' | 'still' | 'meanwhile' | 'nonetheless' | 'instead' | 'indeed' | 'alternatively'
+Conj -> 'anyway' | 'incidentally' | 'till' | 'how'
+
+Adv -> 'above' | 'accordingly' | 'again' | 'ago' | 'ahead' | 'almost' | 'alone' | 'also' | 'already'
+Adv -> 'always' | 'anywhere' | 'away' | 'back' | 'badly' | 'basically' | 'before' | 'below' | 'besides'
+Adv -> 'carefully' | 'carelessly' | 'certainly' | 'clearly' | 'consequently' | 'definitely' | 'down'
+Adv -> 'during' | 'early' | 'easily' | 'enough' | 'even' | 'everywhere' | 'far' | 'fast' | 'finally'
+Adv -> 'forward' | 'hard' | 'hardly' | 'here' | 'however' | 'immediately' | 'in' | 'indeed' | 'inside'
+Adv -> 'instead' | 'just' | 'late' | 'later' | 'least' | 'less' | 'little' | 'loudly' | 'luckily'
+Adv -> 'maybe' | 'meanwhile' | 'more' | 'moreover' | 'most' | 'much' | 'naturally' | 'near' | 'nevertheless'
+Adv -> 'never' | 'now' | 'nowhere' | 'obviously' | 'off' | 'often' | 'on' | 'only' | 'otherwise' | 'out'
+Adv -> 'outside' | 'over' | 'perhaps' | 'personally' | 'possibly' | 'probably' | 'quietly' | 'quite'
+Adv -> 'rather' | 'recently' | 'seriously' | 'since' | 'slow' | 'slowly' | 'so' | 'somewhere' | 'sometimes'
+Adv -> 'sometime' | 'soon' | 'still' | 'suddenly' | 'there' | 'therefore' | 'then' | 'thoroughly' | 'today'
+Adv -> 'together' | 'tomorrow' | 'tonight' | 'too' | 'up' | 'under' | 'unfortunately' | 'usually' | 'very'
+Adv -> 'well' | 'while' | 'yesterday' | 'yet'
+
+Aux -> 'do' | 'does' | 'did' | 'can' | 'could' | 'will' | 'would' | 'shall' | 'should' | 'may' | 'might' | 'must'
+Aux -> 'have' | 'has' | 'had' | 'ought' | 'used' | 'need' | 'needs' | 'needed' | 'dare' | 'going' | 'am' | 'is'
+Aux -> 'are' | 'was' | 'were' | 'be' | 'being' | 'been' | 'get' | 'gets' | 'got' | 'gotten' | 'become' | 'becomes'
+Aux -> 'became' | 'seem' | 'seems' | 'seemed' | 'appear' | 'appears' | 'appeared' | 'remain' | 'remains' | 'remained'
+Aux -> 'stay' | 'stays' | 'stayed' | 'keep' | 'keeps' | 'kept' | 'continue' | 'continues' | 'continued' | 'start'
+Aux -> 'starts' | 'started' | 'begin' | 'begins' | 'began' | 'go' | 'goes' | 'went' | 'gone' | 'come' | 'comes'
+Aux -> 'came' | 'let' | 'lets' | 'make' | 'makes' | 'made' | 'try' | 'tries' | 'tried' | 'want' | 'wants' | 'wanted'
+Aux -> 'like' | 'likes' | 'liked' | 'love' | 'loves' | 'loved' | 'hate' | 'hates' | 'hated' | 'prefer' | 'prefers'
+Aux -> 'preferred' | 'hope' | 'hopes' | 'hoped' | 'wish' | 'wishes' | 'wished' | 'expect' | 'expects' | 'expected'
+Aux -> 'plan' | 'plans' | 'planned' | 'I'd' | 'I'll' | 'I'm' | 'Let's' | 'Will'
+
+Neg -> 'not' | 'don't' | 'doesn't' | 'didn't' | 'can't' | 'couldn't' | 'won't'
+Neg -> 'wouldn't' | 'shouldn't' | 'mustn't' | 'haven't' | 'hasn't' | 'hadn't' | 'cannot' | 'no'
+
+ProperNoun -> 'Baguio' | 'Christmas' | 'Easter' | 'English' | 'Filipino' | 'Friday' | 'God' | 'Ilocano'
+ProperNoun -> 'January' | 'John' | 'February' | 'Manila' | 'Mary' | 'Monday' | 'Philippines' | 'Saturday' | 'She'
+ProperNoun -> 'Sunday' | 'They' | 'Thursday' | 'Tuesday' | 'UN' | 'Wednesday' | 'World'
